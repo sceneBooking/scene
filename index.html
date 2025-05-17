@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scene | Artist Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Rubik', sans-serif;
+      background: #f8f7f3;
+      color: #111;
+
+    }
+    .logo-default{
+        width: 20%;
+        padding-left: 30px;
+    }
+
+    .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 2px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    z-index: 1000;
+    
+    }
+
+    .header h2 {
+      font-weight: 800;
+      font-size: 24px;
+      color: #5e239d;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background:rgb(222, 222, 222);
+      opacity: 0.9;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      margin-top: 12%;
+
+    }
+    /*.container h2{
+        font-family: 'Cooper Hewitt', sans-serif;
+        font-weight: 700;
+    }
+    h2 {
+      font-family: 'Cooper Hewitt', sans-serif;
+  font-weight: 700;
+    }*/
+    .container-para{
+        font-family: 'Rubik', sans-serif;
+      background: rgb(222, 222, 222);
+      color: #111;
+    }
+    .scene-text{
+      font-family: "Rammetto One", sans-serif;
+        font-weight: 50;
+        font-size: 15px;
+    }
+    .form-title{
+        font-family: "Rammetto One", sans-serif;
+        font-weight: 400;
+        font-size: 40px;
+        font-style: normal;
+
+
+    }
+
+    p {
+      color: #666;
+      font-size: 15px;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin: 20px 0 6px;
+    }
+    .first-name{
+        width: 90%;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      font-size: 15px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      outline-color: #7f35db;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input[type="file"] {
+      padding: 6px;
+    }
+
+    .row {
+      display: flex;
+      gap: 15px;
+    }
+
+    .row > div {
+      flex: 1;
+    }
+
+    .submit-btn {
+      margin-top: 30px;
+      background: #7F55B1;
+      color: white;
+      padding: 14px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: #5e239d;
+    }
+
+    @media (max-width: 600px) {
+      .row {
+        flex-direction: column;
+      }
+      .container{
+        margin-top:40%;
+        margin-left: 7%;
+        margin-right: 7%;
+      }
+      .button-down {
+        margin-right: 30px; 
+      }
+      .dropdown{
+        margin-right: 10px;
+      }
+      .logo-default{
+        width: 45%;
+      }
+      .loc{
+        display: none;
+      }
+    }
+    .dropdown-wrapper {
+  margin: 20px 0;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown button {
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+  color: #333;
+}
+
+.dropdown-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background: white;
+  display: none;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.dropdown-list li {
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown-list li:hover {
+  background: #f0f0f0;
+}
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 100; /* Adjust for readability */
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <a href="https://scenebooking.com/"><img class="logo-default" src="https://scenebooking.com/wp-content/uploads/2024/12/scene_logo-black_color.png" alt="SCENE" itemprop="url"></a>
+    <div>
+        <div class="dropdown-wrapper">
+  <label class="loc">Location</label>
+  <div class="dropdown" style="padding-right: 15px;">
+    <button type="button" id="locationBtn" class="button-down">Select Location ▾</button>
+    <ul id="locationList" class="dropdown-list">
+      <li>Chennai</li>
+      <li>Pondicherry</li>
+      <li>Coimbatore</li>
+      <li>Hyderabad</li>
+    </ul>
+    <input type="hidden" name="location" id="locationInput" required />
+  </div>
+</div>
+
+
+    </div>
+  </div>
+  <video autoplay muted loop playsinline class="video-bg">
+    <source src="back.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container">
+    <h3 class="container-para"><span class="scene-text">SCENE</span>- a go to hyperlocal experience booking platform available in multiple cities now ! 
+    We are here to make lead generation, awareness and sales for you easier by making you reach the target audience through our platform.</br></br>
+
+    Let’s together create the fun <span class="scene-text">SCENE!</span></h3>
+    <h2 class="form-title">Artist Registration</h2>
+    <p>Fill out your details to get featured on Scene!</p>
+
+    <form id="artistForm">
+      <div class="row">
+        <div>
+          <label>First Name</label>
+          <input type="text" class="first-name" placeholder="Enter the First Name" required />
+        </div>
+        <div>
+          <label>Last Name</label>
+          <input type="text" placeholder="Enter the Last Name" required />
+        </div>
+      </div>
+
+      <label>Email</label>
+      <input type="email" placeholder="Enter the Email" required />
+
+      <label>Phone</label>
+      <input type="tel" placeholder="Enter your Phone number" required />
+
+      <label>Instagram ID</label>
+      <input type="text" placeholder="Enter your Instagram ID" />
+
+      <label>City</label>
+      <input type="text" placeholder="Enter your City" required />
+
+      <label>Are you a full-time artist?</label>
+      <select>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+
+      <label>If not, which days are you available?</label>
+      <input type="text" />
+
+      <label>What would you like to list with us? (Activity/Adventure Name)</label>
+      <input type="text" required />
+
+      <label>Would you take 1-on-1 workshops?</label>
+      <select>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+
+      <label>Studio/Venue</label>
+      <select>
+        <option>I have my own studio</option>
+        <option>I need a venue</option>
+      </select>
+
+      <label>Are you a student open to in-house internship?</label>
+      <select>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+
+      <label>Upload images/videos of your work</label>
+      <input type="file" multiple accept="image/*,video/*" />
+
+      <button type="submit" class="submit-btn">Submit Form</button>
+    </form>
+  </div>
+
+
+  <script>
+    document.getElementById('artistForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("Thanks for registering! We'll be in touch soon.");
+      this.reset();
+    });
+
+  const btn = document.getElementById('locationBtn');
+  const list = document.getElementById('locationList');
+  const input = document.getElementById('locationInput');
+
+  btn.addEventListener('click', () => {
+    list.style.display = list.style.display === 'block' ? 'none' : 'block';
+  });
+
+  list.querySelectorAll('li').forEach(item => {
+    item.addEventListener('click', () => {
+      btn.textContent = item.textContent + ' ▾';
+      input.value = item.textContent;
+      list.style.display = 'none';
+    });
+  });
+
+  // Close dropdown if clicked outside
+  window.addEventListener('click', function(e) {
+    if (!btn.contains(e.target) && !list.contains(e.target)) {
+      list.style.display = 'none';
+    }
+  });
+
+
+
+  </script>
+</body>
+</html>
