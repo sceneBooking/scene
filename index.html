@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scene | Artist Registration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header">
+    <a href="https://scenebooking.com/"><img class="logo-default" src="https://scenebooking.com/wp-content/uploads/2024/12/scene_logo-black_color.png" alt="SCENE" itemprop="url"></a>
+    <div>
+      <div class="dropdown-wrapper">
+        <label class="loc">Location</label>
+        <div class="dropdown" style="padding-right: 15px;">
+          <button type="button" id="locationBtn" class="button-down">Select Location ▾</button>
+          <ul id="locationList" class="dropdown-list">
+            <li>Chennai</li>
+            <li>Pondicherry</li>
+            <li>Coimbatore</li>
+            <li>Hyderabad</li>
+          </ul>
+          <input type="hidden" name="location" id="locationInput" required />
+        </div>
+      </div>
+    </div>
+  </div>
+  <video autoplay muted loop playsinline class="video-bg">
+    <source src="./vid/back.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container">
+    <h3 class="container-para"><span class="scene-text">SCENE</span>- a go to hyperlocal experience booking platform available in multiple cities now ! 
+    We are here to make lead generation, awareness and sales for you easier by making you reach the target audience through our platform.</br></br>
+
+    Let's together create the fun <span class="scene-text">SCENE !</span></h3>
+    </br>
+    <h2 class="form-title">Artist Registration</h2>
+    <p>Fill out your details to get featured on Scene!</p>
+
+    <form id="artistForm">
+      <div class="row">
+        <div>
+          <label>First Name</label>
+          <input type="text" name="firstName" class="first-name" placeholder="Enter the First Name" required />
+        </div>
+        <div>
+          <label>Last Name</label>
+          <input type="text" name="lastName" placeholder="Enter the Last Name" required />
+        </div>
+      </div>
+
+      <label>Email</label>
+      <input type="email" name="email" placeholder="Enter the Email" required />
+
+      <label>Phone</label>
+      <input type="tel" name="phone" placeholder="Enter your Phone number" required />
+
+      <label>Instagram ID</label>
+      <input type="text" name="instagram" placeholder="Enter your Instagram ID" />
+
+      <label>City</label>
+      <input type="text" name="city" placeholder="Enter your City" required />
+
+      <label>Are you a full-time artist?</label>
+      <select name="fullTimeArtist">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <label>If not, which days are you available?</label>
+      <input type="text" name="availableDays" />
+
+      <label>What would you like to list with us? (Activity/Adventure Name)</label>
+      <input type="text" name="activityName" required />
+
+      <label>Would you take 1-on-1 workshops?</label>
+      <select name="workshops">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <label>Studio/Venue</label>
+      <select name="studioVenue">
+        <option value="I have my own studio">I have my own studio</option>
+        <option value="I need a venue">I need a venue</option>
+      </select>
+
+      <label>Are you a student open to in-house internship?</label>
+      <select name="internship">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <label>Google Drive Link to your work samples</label>
+      <input type="url" name="driveLink" placeholder="Paste your Google Drive folder link here" />
+
+      <button type="submit" class="submit-btn">Submit Form</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
